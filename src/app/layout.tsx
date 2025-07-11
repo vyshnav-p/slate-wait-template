@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fustat } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import { ThemeProvider } from "./lib/theme-provider";
 
 const fustat = Fustat({
   variable: "--font-fustat",
@@ -18,11 +20,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${fustat.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+        </ThemeProvider>
+
       </body>
     </html>
   );

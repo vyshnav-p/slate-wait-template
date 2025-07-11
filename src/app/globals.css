@@ -1,24 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-border: var(--surface-border);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-muted-border: var(--surface-muted-border);
+
+  --color-icon-foreground: var(--icon-foreground);
+
+  --color-toggle-bg: var(--toggle-bg);
+  --color-toggle-border: var(--toggle-border);
+
+  --color-button-surface: var(--button-surface);
+
+  --color-foreground-inverse: var(--foreground-inverse);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --font-fustat: var(--font-fustat, sans-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Light mode */
+:root {
+  --background: #f8f8f8;
+  --foreground: #000000;
+
+  --surface: #ffffff;
+  --surface-border: #ffffff;
+
+  --surface-muted: #ededed;
+  --surface-muted-border: #e3e3e3;
+
+  --icon-foreground: #878787;
+
+  --toggle-bg: #f4f4f4;
+  --toggle-border: #eaeaea;
+
+  --button-surface: #2a2a2a;
+
+  --foreground-inverse: #ffffff;
+  --foreground-muted: #686868;
+}
+
+/* Dark mode */
+.dark {
+  --background: #000000;
+  --foreground: #d4d4d41;
+
+  --surface: #181818;
+  --surface-border: #252525;
+
+  --surface-muted: #131313;
+  --surface-muted-border: #202020;
+
+  --icon-foreground: #787878;
+
+  --toggle-bg: #222222;
+  --toggle-border: #2e2e2e;
+
+  --button-surface: #d4d4d4;
+
+  --foreground-inverse: #000000;
+  --foreground-muted: #979797;
+}
+
+/* Tailwind base styles */
+@layer base {
+  * {
+    @apply border-surface-border;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-fustat);
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-fustat);
+  }
 }

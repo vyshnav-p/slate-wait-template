@@ -22,7 +22,7 @@ export default function Faq() {
                 className="w-full bg-surface-muted border border-surface-muted-border rounded-2xl text-sm px-4 py-4 mb-4 hover:cursor-pointer"
             >
                 <div
-                    className="w-full flex items-center justify-between"
+                    className="w-full flex items-center justify-between text-start"
                 >
                     <p>{faq.question}</p>
                     <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -48,13 +48,13 @@ export default function Faq() {
     };
 
     return (
-        <section className="w-[50rem] min-h-screen flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
+        <section className="max-w-[90vw] md:w-[45rem] lg:w-[50rem] min-h-screen flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
             <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-2">
                 <TbMessages className="text-sm text-icon-foreground" />
                 <p className="text-xs text-foreground-muted">FAQ</p>
             </div>
 
-            <div className="flex flex-row gap-4 w-full mt-10">
+            <div className="flex flex-col lg:flex-row lg:gap-4 w-full mt-10">
                 {/* Left Column */}
                 <div className="flex flex-col w-full">
                     {leftColumn.map((faq, i) => renderFaqItem(faq, i * 2))}

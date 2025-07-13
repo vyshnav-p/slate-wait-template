@@ -4,7 +4,7 @@ import { LuChartNoAxesColumn, LuZap } from 'react-icons/lu'
 
 export default function About() {
     return (
-        <section className="max-w-[90vw] md:w-[45rem] lg:w-[50rem] min-h-screen flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
+        <section className="w-[90vw] md:w-[45rem] lg:w-[50rem] min-h-screen flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
             <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border light:border-none shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none p-2">
                 <p className="text-xs text-foreground-muted">About Toko</p>
             </div>

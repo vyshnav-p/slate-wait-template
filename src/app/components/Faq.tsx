@@ -48,7 +48,7 @@ export default function Faq() {
     };
 
     return (
-        <section className="max-w-[90vw] md:w-[45rem] lg:w-[50rem] flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
+        <section className="w-[90vw] md:w-[45rem] lg:w-[50rem] flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
             <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-2">
                 <TbMessages className="text-sm text-icon-foreground" />
                 <p className="text-xs text-foreground-muted">FAQ</p>

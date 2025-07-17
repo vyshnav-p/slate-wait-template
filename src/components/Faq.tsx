@@ -3,7 +3,7 @@ import { IoIosArrowDropdownCircle } from 'react-icons/io';
 import { TbMessages } from 'react-icons/tb';
 import { motion } from 'framer-motion';
 import { faqs } from '../data/faq';
-import { IFAQ } from '../type';
+import { IFAQ } from '@/app/type';
 
 export default function Faq() {
 

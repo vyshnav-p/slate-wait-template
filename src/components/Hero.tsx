@@ -5,7 +5,7 @@ import { CgWebsite } from 'react-icons/cg'
 
 export default function Hero() {
   return (
-     <section id="hero" className="w-[90vw] md:w-[45rem] lg:w-[50rem]  mx-auto flex flex-col items-center text-center pt-48">
+     <section id="hero" className="w-[90vw] md:w-[45rem] lg:w-[50rem] mx-auto flex flex-col items-center text-center pt-48">
         <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.3 }} className="flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border light:border-none shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none p-2">
           <CgWebsite className="text-sm text-icon-foreground" />
           <p className="text-xs text-foreground-muted">AI Powered</p>
@@ -47,7 +47,7 @@ export default function Hero() {
         {/* device */}
 
         <div className="relative z-0 w-full">
-          <motion.div initial={{ y: 200 }} animate={{ y: 0 }} transition={{ duration: 0.5,delay: 0.8 }} className="flex items-center justify-center w-full h-[12rem] md:h-[32rem] bg-[#7a7b7c] rounded-3xl mt-24 p-0.5 z-0">
+          <motion.div initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 0.6,delay: 0.8 }} className="flex items-center justify-center w-full h-[12rem] md:h-[32rem] bg-[#7a7b7c] rounded-3xl mt-24 p-0.5 z-0">
             <div className="flex items-center justify-center w-full h-full rounded-3xl p-2 bg-black">
               <div className="relative flex items-center justify-center w-full h-full rounded-2xl overflow-hidden">
                 <Image

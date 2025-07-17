@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Fustat } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./lib/theme-provider";
+import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/lib/theme-provider";
 
 const fustat = Fustat({
   variable: "--font-fustat",

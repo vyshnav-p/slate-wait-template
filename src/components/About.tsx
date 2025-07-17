@@ -1,51 +1,48 @@
-import React from "react";
-import { HiOutlineSparkles } from "react-icons/hi";
-import { LuChartNoAxesColumn, LuZap } from "react-icons/lu";
+import { IAboutFeature } from "@/type";
 
-export default function About() {
+interface AboutProps {
+  sectionLabel: string;
+  description: string;
+  features: IAboutFeature[];
+  videoSrc: string;
+}
+
+export default function About({
+  sectionLabel,
+  description,
+  features,
+  videoSrc,
+}: AboutProps) {
   return (
-    <section className="w-[90vw] md:w-[45rem] lg:w-[50rem] min-h-screen flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
-      <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border light:border-none shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none p-2">
-        <p className="text-xs text-muted-foreground">About Toko</p>
+    <section
+      id="about"
+      className="mx-auto flex min-h-screen w-[90vw] flex-col items-center py-40 md:w-[45rem] lg:w-[50rem]"
+    >
+      <div className="bg-surface dark:border-surface-border self-start rounded-lg p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:border dark:shadow-none">
+        <p className="text-muted-foreground text-xs">{sectionLabel}</p>
       </div>
 
-      <div className="flex flex-col w-full items-center justify-center mt-5">
-        <h1 className="font-semibold text-muted-foreground text-xl md:text-2xl">
-          Toko is the <span className="">fastest way to build a website</span>.
-          No templates. No drag and drop. No friction. Just tell Toko what you
-          need, and it builds it for you. Instantly. Clean, responsive, and
-          ready to go live.
+      <div className="mt-5 flex w-full flex-col items-center justify-center gap-5">
+        <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
+          {description}
         </h1>
 
-        <div className="w-full relative flex flex-col md:flex-row items-center md:items-stretch justify-between gap-4 h-[30rem] md:h-[6rem] mt-5">
-          {[
-            {
-              icon: <HiOutlineSparkles className="size-6" />,
-              label: "Advanced ML & NLP",
-            },
-            {
-              icon: <LuChartNoAxesColumn className="size-6" />,
-              label: "Easy Analytics",
-            },
-            { icon: <LuZap className="size-6" />, label: "10x Faster" },
-            { icon: <LuZap className="size-6" />, label: "10x Faster" },
-          ].map((item, idx) => (
+        <div className="flex h-[30rem] w-full flex-col items-center gap-4 md:h-[6rem] md:flex-row">
+          {features.map((item, idx) => (
             <div
               key={idx}
-              className="h-full w-[15rem] md:w-full flex flex-col items-center justify-center gap-3 bg-muted-surface rounded-2xl border border-muted-surface-border"
+              className="bg-muted-surface border-muted-surface-border flex h-full w-[15rem] flex-col items-center justify-center gap-3 rounded-2xl border md:w-full"
             >
               {item.icon}
-              <p className="font-semibold text-sm">{item.label}</p>
+              <p className="text-sm font-semibold">{item.label}</p>
             </div>
           ))}
         </div>
 
-        {/*  */}
-
-        <div className="w-full h-[30rem] max-h-[30rem] mt-10">
+        <div className="mt-10 h-[30rem] max-h-[30rem] w-full">
           <video
-            src="/team.mp4"
-            className="w-full h-full object-cover rounded-[2.3rem] border-[7px] border-muted-surface-border"
+            src={videoSrc}
+            className="border-muted-surface-border h-full w-full rounded-4xl border-[7px] object-cover"
             loop
             autoPlay
             playsInline

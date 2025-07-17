@@ -19,7 +19,7 @@ export default function Faq() {
             <motion.button
                 onClick={() => setOpenIndex(isOpen ? null : indexInOriginal)}
                 key={indexInOriginal}
-                className="w-full bg-surface-muted border border-surface-muted-border rounded-2xl text-sm px-4 py-4 mb-4 hover:cursor-pointer"
+                className="w-full bg-muted-surface border border-muted-surface-border rounded-2xl text-sm px-4 py-4 mb-4 hover:cursor-pointer"
             >
                 <div
                     className="w-full flex items-center justify-between text-start"
@@ -37,7 +37,7 @@ export default function Faq() {
                         opacity: isOpen ? 1 : 0
                     }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden text-foreground-muted text-start"
+                    className="overflow-hidden text-muted-foreground text-start"
                 >
 
                     <p className='mt-3 text-[0.78rem]'>{faq.answer}</p>
@@ -51,7 +51,7 @@ export default function Faq() {
         <section className="w-[90vw] md:w-[45rem] lg:w-[50rem] flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
             <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-2">
                 <TbMessages className="text-sm text-icon-foreground" />
-                <p className="text-xs text-foreground-muted">FAQ</p>
+                <p className="text-xs text-muted-foreground">FAQ</p>
             </div>
 
             <div className="flex flex-col lg:flex-row lg:gap-4 w-full mt-10">

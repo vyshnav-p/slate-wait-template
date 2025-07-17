@@ -1,4 +1,4 @@
-import { IFAQ } from "@/app/type";
+import { IFAQ } from "@/type";
 import { siteDetails } from "./siteDetails";
 
 export const faqs: IFAQ[] = [

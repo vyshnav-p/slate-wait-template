@@ -7,10 +7,12 @@ export const socialLinks: IFooterSocialLink[] = [
   {
     icon: TbBrandX,
     href: "https://twitter.com/",
+    label: "Twitter",
   },
   {
     icon: TbBrandYoutube,
     href: "https://youtube.com/",
+    label: "YouTube",
   },
 ];
 

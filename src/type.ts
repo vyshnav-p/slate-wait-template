@@ -27,6 +27,7 @@ export interface IAbout {
 export interface IFooterSocialLink {
   icon: IconType;
   href: string;
+  label: string;
 }
 
 export interface IFooter {
@@ -45,7 +46,7 @@ export interface IHeroSocialProof {
 }
 
 export interface IHero {
-  sectionId:string;
+  sectionId: string;
   badge: IHeroBadge;
   title: string;
   subtitle: string;

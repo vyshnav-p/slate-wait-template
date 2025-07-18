@@ -1,9 +1,9 @@
 import { IHero, IHeroBadge, IHeroSocialProof } from "@/type";
-import { CgWebsite } from "react-icons/cg";
+import { LuSparkles } from "react-icons/lu";
 
 export const heroBadge: IHeroBadge = {
-  icon: CgWebsite,
-  text: "AI powered",
+  icon: LuSparkles,
+  text: "AI Magic",
 };
 
 export const heroSocialProof: IHeroSocialProof = {
@@ -20,7 +20,7 @@ export const heroDetails: IHero = {
   badge: heroBadge,
   title: "Build Stunning Websites in Seconds",
   subtitle:
-    "Create pixel-perfect websites with the power of AI. Just drag, drop, and go live.",
+    "Just give a prompt and watch your site come to life.",
   socialProof: heroSocialProof,
-  heroImage: "/dashboard.png",
+  heroImage: "/images/hero_image.png",
 };

@@ -13,26 +13,31 @@ export default function About() {
       </div>
 
       <div className="mt-5 flex w-full flex-col items-center justify-center gap-5">
-        <h1 className="text-muted-foreground text-xl font-semibold md:text-2xl">
+        <h1 className="text-foreground text-xl font-semibold md:text-2xl">
           {aboutDetails.description}
         </h1>
 
         <div className="flex h-[30rem] w-full flex-col items-center gap-4 md:h-[6rem] md:flex-row">
-          {aboutDetails.features.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-muted-surface border-muted-surface-border flex h-full w-[15rem] flex-col items-center justify-center gap-3 rounded-2xl border md:w-full"
-            >
-              {item.icon}
-              <p className="text-sm font-semibold">{item.label}</p>
-            </div>
-          ))}
+          {aboutDetails.features.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-muted-surface border-muted-surface-border flex h-full w-[15rem] flex-col items-center justify-center gap-3 rounded-2xl border md:w-full"
+              >
+                <Icon className="size-6" />
+                <p className="text-muted-foreground text-sm font-semibold">
+                  {item.label}
+                </p>
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-10 h-[30rem] max-h-[30rem] w-full">
           <video
             src={aboutDetails.videoSrc}
-            className="border-muted-surface-border h-full w-full rounded-4xl border-[7px] object-cover"
+            className="border-surface-border h-full w-full rounded-4xl border-[10px] object-cover"
             loop
             autoPlay
             playsInline

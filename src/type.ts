@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import { IconType } from "react-icons";
 
 export interface IFAQs {
@@ -13,7 +12,7 @@ export interface IFAQDetails {
 }
 
 export interface IAboutFeature {
-  icon: ReactElement;
+  icon: IconType;
   label: string;
 }
 

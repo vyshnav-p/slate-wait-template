@@ -108,10 +108,10 @@ export default function Hero() {
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="z-0 mt-24 flex h-[12rem] w-full items-center justify-center rounded-3xl bg-[#7a7b7c] p-0.5 md:h-[32rem]"
+          className="z-0 mt-24 flex h-[12rem] w-full items-center justify-center rounded-2xl bg-[#7a7b7c] p-0.5 md:h-[32rem] md:rounded-3xl"
         >
-          <div className="flex h-full w-full rounded-3xl bg-black p-2">
-            <div className="relative flex h-full w-full overflow-hidden rounded-2xl">
+          <div className="flex h-full w-full rounded-2xl bg-black p-1 md:rounded-3xl md:p-2">
+            <div className="relative flex h-full w-full overflow-hidden rounded-lg md:rounded-2xl">
               <Image
                 src={heroDetails.heroImage}
                 alt="Dashboard"

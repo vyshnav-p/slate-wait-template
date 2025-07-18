@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fustat } from "next/font/google";
 
-import { ThemeProvider } from "@/lib/theme-provider";
+import { ThemeProvider } from "@/lib/themeProvider";
 import Navbar from "@/components/Navbar";
 import { siteDetails } from "@/data/siteDetails";
 

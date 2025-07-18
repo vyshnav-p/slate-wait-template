@@ -1,95 +1,116 @@
 import React from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import { CgWebsite } from "react-icons/cg";
 
 export default function Hero() {
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+        when: "beforeChildren",
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0, scale: 0.98 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    },
+  };
+
   return (
     <section
       id="hero"
-      className="w-[90vw] md:w-[45rem] lg:w-[50rem] mx-auto flex flex-col items-center text-center pt-48"
+      className="mx-auto flex w-[90vw] flex-col items-center overflow-hidden pt-48 text-center md:w-[45rem] lg:w-[50rem]"
     >
       <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        className="flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border light:border-none shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none p-2"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center"
       >
-        <CgWebsite className="text-sm text-icon-foreground" />
-        <p className="text-xs text-muted-foreground">AI Powered</p>
-      </motion.div>
-      <motion.h1
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.1 }}
-        className="text-3xl md:text-6xl font-semibold mt-3 max-w-[36rem]"
-      >
-        Build Stunning Websites in Seconds
-      </motion.h1>
-      <motion.p
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.3 }}
-        className="text-sm md:text-base max-w-[25rem] mt-3 text-[#959595]"
-      >
-        Create pixel-perfect websites with the power of AI. Just drag, drop, and
-        go live.
-      </motion.p>
-      <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.5 }}
-        className="relative w-full md:w-[25rem] h-[3rem] mt-8 "
-      >
-        <input
-          type="text"
-          placeholder="Your email"
-          className="w-full h-full text-sm px-3 pr-[7rem] bg-muted-surface focus:bg-surface transition-colors duration-150 outline-none focus:outline-none border border-muted-surface-border focus:border-surface-border rounded-xl"
-        />
-        <button className="absolute text-foreground-inverse top-1 bottom-1 right-1 px-4 bg-button-surface text-sm font-medium rounded-xl border border-surface-border">
-          Join waitlist
-        </button>
+        <motion.div
+          variants={itemVariants}
+          className="bg-surface border-surface-border flex items-center justify-center gap-1.5 rounded-lg border p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none"
+        >
+          <CgWebsite className="text-icon-foreground text-sm" />
+          <p className="text-muted-foreground text-xs">AI Powered</p>
+        </motion.div>
+        <motion.h1
+          variants={itemVariants}
+          className="mt-5 max-w-[36rem] text-3xl font-semibold md:text-6xl"
+        >
+          Build Stunning Websites in Seconds
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-muted-foreground mt-2 max-w-[25rem] text-sm md:text-base"
+        >
+          Create pixel-perfect websites with the power of AI. Just drag, drop,
+          and go live.
+        </motion.p>
+
+        <motion.div
+          variants={itemVariants}
+          className="relative mt-8 h-[3rem] w-full md:w-[25rem]"
+        >
+          <input
+            type="text"
+            placeholder="Your email"
+            className="bg-muted-surface focus:bg-surface border-muted-surface-border focus:border-surface-border h-full w-full rounded-xl border px-3 pr-[7rem] text-sm transition-colors duration-150 outline-none"
+          />
+          <button className="text-foreground-inverse bg-button-surface border-surface-border absolute top-1 right-1 bottom-1 rounded-xl border px-4 text-sm font-medium hover:cursor-pointer">
+            Join waitlist
+          </button>
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="mt-6 flex items-center justify-center gap-3"
+        >
+          <div className="flex -space-x-2">
+            {["/profile_1.jpg", "/profile_2.jpg", "/profile_3.jpg"].map(
+              (src, index) => (
+                <div
+                  key={index}
+                  className="relative h-7 w-7 overflow-hidden rounded-full border-[1.5px]"
+                >
+                  <Image
+                    src={src}
+                    alt={`User ${index + 1}`}
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </div>
+              ),
+            )}
+          </div>
+          <p className="text-muted-foreground text-[0.83rem]">
+            1000 + already joined the waitlist
+          </p>
+        </motion.div>
       </motion.div>
 
-      <motion.div
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.6 }}
-        className="flex items-center mt-6 gap-3"
-      >
-        <div className="flex -space-x-2">
-          {["/profile_1.jpg", "/profile_2.jpg", "/profile_3.jpg"].map(
-            (src, index) => (
-              <div
-                key={index}
-                className="relative w-7 h-7 rounded-full border-[1.5px] border-white dark:border-black overflow-hidden"
-              >
-                <Image
-                  src={src}
-                  alt={`User ${index + 1}`}
-                  fill
-                  sizes="40px"
-                  className="object-cover"
-                />
-              </div>
-            )
-          )}
-        </div>
-        <p className="text-[0.83rem] text-muted-foreground">
-          1000 + already joined the waitlist
-        </p>
-      </motion.div>
-      {/* device */}
-
-      <div className="relative z-0 w-full">
+      <div className="relative w-full">
         <motion.div
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex items-center justify-center w-full h-[12rem] md:h-[32rem] bg-[#7a7b7c] rounded-3xl mt-24 p-0.5 z-0"
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="z-0 mt-24 flex h-[12rem] w-full items-center justify-center rounded-3xl bg-[#7a7b7c] p-0.5 md:h-[32rem]"
         >
-          <div className="flex items-center justify-center w-full h-full rounded-3xl p-2 bg-black">
-            <div className="relative flex items-center justify-center w-full h-full rounded-2xl overflow-hidden">
+          <div className="flex h-full w-full rounded-3xl bg-black p-2">
+            <div className="relative flex h-full w-full overflow-hidden rounded-2xl">
               <Image
                 src="/dashboard.png"
                 alt="Dashboard"
@@ -99,8 +120,7 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-        {/*  */}
-        <div className="absolute bottom-0 left-0 w-full h-20 md:h-36 bg-gradient-to-t from-background to-transparent" />
+        <div className="from-background absolute bottom-0 left-0 h-20 w-full bg-gradient-to-t to-transparent md:h-36" />
       </div>
     </section>
   );

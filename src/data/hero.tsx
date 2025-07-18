@@ -19,8 +19,7 @@ export const heroDetails: IHero = {
   sectionId: "hero",
   badge: heroBadge,
   title: "Build Stunning Websites in Seconds",
-  subtitle:
-    "Just give a prompt and watch your site come to life.",
+  subtitle: "Just give a prompt and watch your site come to life.",
   socialProof: heroSocialProof,
   heroImage: "/images/hero_image.png",
 };

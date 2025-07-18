@@ -1,5 +1,5 @@
-import { aboutDetails } from "@/data/about";
 import { motion, Variants } from "motion/react";
+import { aboutDetails } from "@/data/about";
 
 export default function About() {
   const containerVariants: Variants = {
@@ -70,11 +70,13 @@ export default function About() {
         <div className="mt-10 h-[30rem] max-h-[30rem] w-full">
           <video
             src={aboutDetails.videoSrc}
+            key={aboutDetails.videoSrc}
             className="border-surface-border h-full w-full rounded-4xl border-[10px] object-cover"
             loop
             autoPlay
             playsInline
             muted
+            aria-label="About section video showing product demo"
           />
         </div>
       </div>

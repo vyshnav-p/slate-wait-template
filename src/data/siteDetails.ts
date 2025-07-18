@@ -1,6 +1,6 @@
 export const siteDetails = {
   siteName: "Toko",
-  siteUrl: "", // Replace with your actual domain
+  siteUrl: "", 
   metadata: {
     title: "Toko – Build Stunning Websites in Seconds with AI",
     description:
@@ -8,6 +8,8 @@ export const siteDetails = {
   },
   language: "en-us",
   locale: "en-US",
-  siteLogo: `${process.env.BASE_PATH || ""}/images/logo.png`, // or replace with a text fallback if needed
-  googleAnalyticsId: "", // Add your GA ID when ready, e.g., G-ABC123XYZ
+  logos: {
+    light: `${process.env.BASE_PATH || ""}/images/logo_light.png`,
+    dark: `${process.env.BASE_PATH || ""}/images/logo_dark.png`,
+  },
 };

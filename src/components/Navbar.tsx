@@ -5,6 +5,7 @@ import { FiSun } from "react-icons/fi";
 import { FaRegMoon } from "react-icons/fa";
 import { useTheme } from "next-themes";
 import { motion } from "motion/react";
+import { siteDetails } from "@/data/siteDetails";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -20,7 +21,9 @@ export default function Navbar() {
       className="bg-surface border-surface-border fixed top-10 right-0 left-0 z-50 mx-auto flex w-80 items-center justify-between gap-4 rounded-2xl border p-2 pl-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none"
     >
       <Image
-        src={theme === "light" ? "/logo_light.png" : "/logo_dark.png"}
+        src={
+          theme === "light" ? siteDetails.logos.light : siteDetails.logos.dark
+        }
         alt="Site logo"
         width={25}
         height={25}

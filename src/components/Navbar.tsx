@@ -21,13 +21,14 @@ export default function Navbar() {
     >
       <Image
         src={theme === "light" ? "/logo_light.png" : "/logo_dark.png"}
-        alt="logo"
+        alt="Site logo"
         width={25}
         height={25}
         priority
       />
       <button
         onClick={toggleTheme}
+        aria-label="Toggle dark/light theme"
         className="bg-toggle-bg border-toggle-border grid h-10 w-10 place-items-center rounded-xl border"
       >
         <FiSun className="text-icon-foreground h-[1rem] w-[1rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />

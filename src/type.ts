@@ -34,3 +34,22 @@ export interface IFooter {
   copyrightNotice: string;
   socialLinks: IFooterSocialLink[];
 }
+
+export interface IHeroBadge {
+  icon: IconType;
+  text: string;
+}
+
+export interface IHeroSocialProof {
+  images: string[];
+  text: string;
+}
+
+export interface IHero {
+  sectionId:string;
+  badge: IHeroBadge;
+  title: string;
+  subtitle: string;
+  socialProof: IHeroSocialProof;
+  heroImage: string;
+}

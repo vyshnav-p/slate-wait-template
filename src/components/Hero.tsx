@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, Variants } from "motion/react";
-import { CgWebsite } from "react-icons/cg";
+import { heroDetails } from "@/data/hero";
 
 export default function Hero() {
   const containerVariants: Variants = {
@@ -23,14 +23,16 @@ export default function Hero() {
       scale: 1,
       transition: {
         duration: 0.3,
-        ease: 'easeOut',
+        ease: "easeOut",
       },
     },
   };
 
+  const BadgeIcon = heroDetails.badge.icon;
+
   return (
     <section
-      id="hero"
+      id={heroDetails.sectionId}
       className="mx-auto flex w-[90vw] flex-col items-center overflow-hidden pt-48 text-center md:w-[45rem] lg:w-[50rem]"
     >
       <motion.div
@@ -43,21 +45,22 @@ export default function Hero() {
           variants={itemVariants}
           className="bg-surface border-surface-border flex items-center justify-center gap-1.5 rounded-lg border p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none"
         >
-          <CgWebsite className="text-icon-foreground text-sm" />
-          <p className="text-muted-foreground text-xs">AI Powered</p>
+          <BadgeIcon className="text-icon-foreground text-sm" />
+          <p className="text-muted-foreground text-xs">
+            {heroDetails.badge.text}
+          </p>
         </motion.div>
         <motion.h1
           variants={itemVariants}
           className="mt-5 max-w-[36rem] text-3xl font-semibold md:text-6xl"
         >
-          Build Stunning Websites in Seconds
+          {heroDetails.title}
         </motion.h1>
         <motion.p
           variants={itemVariants}
           className="text-muted-foreground mt-2 max-w-[25rem] text-sm md:text-base"
         >
-          Create pixel-perfect websites with the power of AI. Just drag, drop,
-          and go live.
+          {heroDetails.subtitle}
         </motion.p>
 
         <motion.div
@@ -79,25 +82,23 @@ export default function Hero() {
           className="mt-6 flex items-center justify-center gap-3"
         >
           <div className="flex -space-x-2">
-            {["/profile_1.jpg", "/profile_2.jpg", "/profile_3.jpg"].map(
-              (src, index) => (
-                <div
-                  key={index}
-                  className="relative h-7 w-7 overflow-hidden rounded-full border-[1.5px]"
-                >
-                  <Image
-                    src={src}
-                    alt={`User ${index + 1}`}
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
-                </div>
-              ),
-            )}
+            {heroDetails.socialProof.images.map((imageSrc, index) => (
+              <div
+                key={index}
+                className="relative h-7 w-7 overflow-hidden rounded-full border-[1.5px]"
+              >
+                <Image
+                  src={imageSrc}
+                  alt={`User ${index + 1}`}
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
           <p className="text-muted-foreground text-[0.83rem]">
-            1000 + already joined the waitlist
+            {heroDetails.socialProof.text}
           </p>
         </motion.div>
       </motion.div>
@@ -112,7 +113,7 @@ export default function Hero() {
           <div className="flex h-full w-full rounded-3xl bg-black p-2">
             <div className="relative flex h-full w-full overflow-hidden rounded-2xl">
               <Image
-                src="/dashboard.png"
+                src={heroDetails.heroImage}
                 alt="Dashboard"
                 fill
                 className="object-cover object-top-left"

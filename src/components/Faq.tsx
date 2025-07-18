@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { motion } from "framer-motion";
+import { motion, Variants } from "motion/react";
 import { faqDetails, faqs } from "../data/faq";
 import { IFAQs } from "@/type";
 
 export default function Faq() {
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+        when: "beforeChildren",
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { y: 20, opacity: 0, scale: 0.98 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const leftColumn = faqs.filter((_, i) => i % 2 === 0);
@@ -14,9 +38,10 @@ export default function Faq() {
     const isOpen = openIndex === indexInOriginal;
 
     return (
-      <button
+      <motion.button
         onClick={() => setOpenIndex(isOpen ? null : indexInOriginal)}
         key={indexInOriginal}
+        variants={itemVariants}
         className="bg-muted-surface border-muted-surface-border mb-4 w-full rounded-2xl border px-4 py-4 text-sm hover:cursor-pointer"
       >
         <div className="flex w-full items-center justify-between text-start">
@@ -39,16 +64,20 @@ export default function Faq() {
         >
           <p className="mt-3 text-[0.78rem]">{faq.answer}</p>
         </motion.div>
-      </button>
+      </motion.button>
     );
   };
 
   return (
-    <section
+    <motion.section
       id={faqDetails.sectionId}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
       className="mx-auto flex w-[90vw] flex-col items-center pt-36 md:w-[45rem] lg:w-[50rem]"
     >
-      <div className="bg-surface border-surface-border self-start rounded-lg p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border dark:shadow-none">
+      <div className="bg-surface border-surface-border self-start rounded-lg border p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none">
         <p className="text-muted-foreground text-xs">
           {faqDetails.sectionLabel}
         </p>
@@ -62,6 +91,6 @@ export default function Faq() {
           {rightColumn.map((faq, i) => renderFaqItem(faq, i * 2 + 1))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,7 +1,7 @@
-import { IFAQ } from "@/type";
+import { IFAQDetails, IFAQs } from "@/type";
 import { siteDetails } from "./siteDetails";
 
-export const faqs: IFAQ[] = [
+export const faqs: IFAQs[] = [
   {
     question: `Is ${siteDetails.siteName} free to use?`,
     answer: `${siteDetails.siteName} offers a free tier so you can start building immediately. Premium plans with more features are available when you're ready to scale.`,
@@ -25,5 +25,11 @@ export const faqs: IFAQ[] = [
   {
     question: `Is my data safe with ${siteDetails.siteName}?`,
     answer: `${siteDetails.siteName} follows best practices in security and privacy. We don’t store sensitive content and your site data is protected with industry-standard encryption.`,
-  }
+  },
 ];
+
+export const faqDetails: IFAQDetails = {
+  sectionId: "faq",
+  sectionLabel: "FAQ",
+  faqs: faqs,
+};

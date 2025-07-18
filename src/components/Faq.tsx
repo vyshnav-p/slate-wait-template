@@ -1,70 +1,67 @@
-import React, { useState } from 'react';
-import { IoIosArrowDropdownCircle } from 'react-icons/io';
-import { TbMessages } from 'react-icons/tb';
-import { motion } from 'framer-motion';
-import { faqs } from '../data/faq';
-import { IFAQ } from '@/type';
+import React, { useState } from "react";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { motion } from "framer-motion";
+import { faqDetails, faqs } from "../data/faq";
+import { IFAQs } from "@/type";
 
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const leftColumn = faqs.filter((_, i) => i % 2 === 0);
+  const rightColumn = faqs.filter((_, i) => i % 2 === 1);
 
-    const leftColumn = faqs.filter((_, i) => i % 2 === 0);
-    const rightColumn = faqs.filter((_, i) => i % 2 === 1);
-
-    const renderFaqItem = (faq: IFAQ, indexInOriginal: number) => {
-        const isOpen = openIndex === indexInOriginal;
-
-        return (
-            <motion.button
-                onClick={() => setOpenIndex(isOpen ? null : indexInOriginal)}
-                key={indexInOriginal}
-                className="w-full bg-muted-surface border border-muted-surface-border rounded-2xl text-sm px-4 py-4 mb-4 hover:cursor-pointer"
-            >
-                <div
-                    className="w-full flex items-center justify-between text-start"
-                >
-                    <p>{faq.question}</p>
-                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                        <IoIosArrowDropdownCircle className="size-5 text-icon-foreground" />
-                    </motion.div>
-                </div>
-
-                <motion.div
-                    initial={false}
-                    animate={{
-                        height: isOpen ? 'auto' : 0,
-                        opacity: isOpen ? 1 : 0
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="overflow-hidden text-muted-foreground text-start"
-                >
-
-                    <p className='mt-3 text-[0.78rem]'>{faq.answer}</p>
-
-                </motion.div>
-            </motion.button>
-        );
-    };
+  const renderFaqItem = (faq: IFAQs, indexInOriginal: number) => {
+    const isOpen = openIndex === indexInOriginal;
 
     return (
-        <section className="w-[90vw] md:w-[45rem] lg:w-[50rem] flex flex-col items-center mx-auto z-10 bg-background relative pt-40">
-            <div className="w-fit self-start flex items-center justify-center gap-1.5 rounded-lg bg-surface border border-surface-border shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-2">
-                <TbMessages className="text-sm text-icon-foreground" />
-                <p className="text-xs text-muted-foreground">FAQ</p>
-            </div>
+      <button
+        onClick={() => setOpenIndex(isOpen ? null : indexInOriginal)}
+        key={indexInOriginal}
+        className="bg-muted-surface border-muted-surface-border mb-4 w-full rounded-2xl border px-4 py-4 text-sm hover:cursor-pointer"
+      >
+        <div className="flex w-full items-center justify-between text-start">
+          <p>{faq.question}</p>
+          <div
+            className={`${isOpen && "rotate-180"} transition-transform duration-300`}
+          >
+            <IoIosArrowDropdownCircle className="text-icon-foreground size-5" />
+          </div>
+        </div>
 
-            <div className="flex flex-col lg:flex-row lg:gap-4 w-full mt-10">
-                {/* Left Column */}
-                <div className="flex flex-col w-full">
-                    {leftColumn.map((faq, i) => renderFaqItem(faq, i * 2))}
-                </div>
-
-                {/* Right Column */}
-                <div className="flex flex-col w-full">
-                    {rightColumn.map((faq, i) => renderFaqItem(faq, i * 2 + 1))}
-                </div>
-            </div>
-        </section>
+        <motion.div
+          initial={false}
+          animate={{
+            height: isOpen ? "auto" : 0,
+            opacity: isOpen ? 1 : 0,
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="text-muted-foreground overflow-hidden text-start"
+        >
+          <p className="mt-3 text-[0.78rem]">{faq.answer}</p>
+        </motion.div>
+      </button>
     );
+  };
+
+  return (
+    <section
+      id={faqDetails.sectionId}
+      className="mx-auto flex w-[90vw] flex-col items-center pt-36 md:w-[45rem] lg:w-[50rem]"
+    >
+      <div className="bg-surface dark:border-surface-border self-start rounded-lg p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:border dark:shadow-none">
+        <p className="text-muted-foreground text-xs">
+          {faqDetails.sectionLabel}
+        </p>
+      </div>
+
+      <div className="mt-10 flex w-full flex-col lg:flex-row lg:gap-4">
+        <div className="flex w-full flex-col">
+          {leftColumn.map((faq, i) => renderFaqItem(faq, i * 2))}
+        </div>
+        <div className="flex w-full flex-col">
+          {rightColumn.map((faq, i) => renderFaqItem(faq, i * 2 + 1))}
+        </div>
+      </div>
+    </section>
+  );
 }

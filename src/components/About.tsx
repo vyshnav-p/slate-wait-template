@@ -3,8 +3,8 @@ import { aboutDetails } from "@/data/about";
 export default function About() {
   return (
     <section
-      id="about"
-      className="mx-auto flex min-h-screen w-[90vw] flex-col items-center py-40 md:w-[45rem] lg:w-[50rem]"
+      id={aboutDetails.sectionId}
+      className="mx-auto flex w-[90vw] flex-col items-center pt-36 md:w-[45rem] lg:w-[50rem]"
     >
       <div className="bg-surface dark:border-surface-border self-start rounded-lg p-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:border dark:shadow-none">
         <p className="text-muted-foreground text-xs">

@@ -9,3 +9,10 @@ export interface IAboutFeature {
   icon: ReactElement;
   label: string;
 }
+
+export interface IAbout {
+  sectionLabel: string;
+  description: string;
+  features: IAboutFeature[];
+  videoSrc: string;
+}

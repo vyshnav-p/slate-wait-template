@@ -70,9 +70,13 @@ export default function Hero() {
           <input
             type="text"
             placeholder="Your email"
+            aria-label="Email address"
             className="bg-muted-surface focus:bg-surface border-muted-surface-border focus:border-surface-border h-full w-full rounded-xl border px-3 pr-[7rem] text-sm transition-colors duration-150 outline-none"
           />
-          <button className="text-foreground-inverse bg-button-surface border-surface-border absolute top-1 right-1 bottom-1 rounded-xl border px-4 text-sm font-medium hover:cursor-pointer">
+          <button
+            aria-label="Join waitlist"
+            className="text-foreground-inverse bg-button-surface border-surface-border absolute top-1 right-1 bottom-1 rounded-xl border px-4 text-sm font-medium hover:cursor-pointer"
+          >
             Join waitlist
           </button>
         </motion.div>

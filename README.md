@@ -47,7 +47,7 @@ Slate Wait is a modern, beautifully designed waitlist template built with [Next.
 - [Next.js 15](https://nextjs.org/)
 - [React 19](https://react.dev/)
 - [Tailwind CSS 4](https://tailwindcss.com/)
-- [Motion One](https://motion.dev/)
+- [Motion](https://motion.dev/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
 

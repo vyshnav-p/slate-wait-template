@@ -51,10 +51,6 @@ Slate Wait is a modern, beautifully designed waitlist template built with [Next.
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE) (add a LICENSE file if you want to specify one).
-
 ## 🙏 Credits
 
 - Hero images and avatars are sample assets. Replace them with your own for production use.
